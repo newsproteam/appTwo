@@ -42,6 +42,8 @@ app.use(express.static(__dirname + '/views'));
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
     //ham co the lay du lieu tu form giao dien
 app.use(bodyParser.urlencoded({ extended: true }));
+
+
 //xac thuc tai khoan===============================================================================================
 app.use(session({
     secret: "mysecret",
