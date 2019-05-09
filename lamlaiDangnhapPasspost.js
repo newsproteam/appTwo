@@ -127,7 +127,6 @@ app.post('/themtaikhoan', urlencodedParser, function(req, res) {
 
         var sql = "insert into taikhoan(name,email,phone,user,password) values(N'" +
             name + "','" + email + "','" + phone + "','" + user + "','" + password + "')";
-        console.log(sql);
         con.query(sql, function(error) {
             if (error) {
                 res.send("loi trong thuc thi câu lệnh");

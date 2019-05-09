@@ -29,17 +29,7 @@
             background: #f4f4f4;
         }
         
-        a {
-            color: #009688;
-            font-size: 130%;
-        }
         
-        a:hover,
-        a:active {
-            text-decoration: none;
-            color: #009688;
-            border-bottom: 1px solid #009688;
-        }
     </style>
 
 </head>
@@ -121,21 +111,17 @@
                                 </h4>
 
                                 <form action="" method="post" style="margin: 10px">
-                                    <select name="hot" type="text" autocomplete="off">
+                                    <select name="hot" type="text" autocomplete="off" ">
                                         <option value="Y">Là tin hót</option>
                                         <option value="N">Không là tin hót</option>
                                         <option value="YY">Là tin rất hót</option>
                                     </select>
-                                    <a href="/hienxemtin/<%=results[0].type%>">Back</a>
-                                    <input style="margin-left : 20px" type="submit" value="update">
+                                    <!-- <a href="/hienxemtin/<%=results[0].type%>">Back</a> -->
+                                    <button class="btn btn-info" href="/hienxemtin/<%=results[0].type%>" style="margin-left : 10px">Back</button>
+                                    <!-- <input style="margin-left : 10px" type="submit" value="update"> -->
+                                    <input style="margin-left : 10px" type="submit" value="Update" class="btn btn-info">
                                 </form>
-
-
                             </div>
-
-
-
-
                         </div>
 
                     </div>
