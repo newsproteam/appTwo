@@ -1,9 +1,0 @@
-// quan ly actor
-function actor () {
-    this.is_admin = 0;
-    this.is_user = 0;
-    this.userID;
-    this.name; 
-    this.pass;
-}
-module.exports = new actor();
