@@ -86,7 +86,7 @@ module.exports = (app) => {
         } else res.render('baoloidangnhap');
     });
     app.get('/hienxemtin/:type', function(req, res) {
-        if (req.isAuthenticated()) {
+        if (req.isAuthenticated() && actor.is_admin == 1) {
             var type = req.body.type;
             var sql = "select t.name as name,t.time as time,t.type as type,t.type1 as type1,t.id as id,tg.name as author from " +
                 req.params.type + " t INNER JOIN taikhoan tg on t.postManId =tg.id";
@@ -146,7 +146,7 @@ module.exports = (app) => {
 
     //sửa tin
     app.get('/suatin/:type/:id', function(req, res) {
-        if (req.isAuthenticated()) {
+        if (req.isAuthenticated() && actor.is_admin == 1) {
             var sql = "select * from " + req.params.type + " where id=" + req.params.id;
             con.query(sql, function(error, results, fields) {
                 if (error) {
@@ -158,7 +158,7 @@ module.exports = (app) => {
         } else res.render('baoloidangnhap');
     });
     app.post('/suatin/:type/:id', urlencodedParser, function(req, res) {
-        if (req.isAuthenticated()) {
+        if (req.isAuthenticated() && actor.is_admin == 1) {
             var type = req.body.type;
             var hot = req.body.hot;
             var name = req.body.name;
@@ -184,6 +184,31 @@ module.exports = (app) => {
             });
         } else res.render('baoloidangnhap');
     });
-
+    //xem va xoa gop y
+    app.get('/xemgopy', function(req, res) {
+        if (req.isAuthenticated() && actor.is_admin == 1) {
+            var sql = "select * from gopy";
+            con.query(sql, function(error, results, fields) {
+                if (error) {
+                    res.send('loi thực thi câu lệnh');
+                } else {
+                    res.render('xemgopy', { results });
+                }
+            });
+        } else res.render('baoloidangnhap');
+    });
+    app.get('/xoagopy/:id', function(req, res) {
+        if (req.isAuthenticated() && actor.is_admin == 1) {
+            var id = req.params.id;
+            var sql = "delete from gopy where id=" + id;
+            con.query(sql, function(error, results, fields) {
+                if (error) {
+                    res.send('loi thực thi câu lệnh');
+                } else {
+                    res.redirect('/xemgopy');
+                }
+            });
+        } else res.render('baoloidangnhap');
+    });
 
 };
