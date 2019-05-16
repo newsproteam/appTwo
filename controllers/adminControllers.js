@@ -58,7 +58,7 @@ module.exports = (app) => {
     });
 
     app.get('/xoataikhoan/:id', urlencodedParser, function(req, res) {
-        if (req.isAuthenticated() && is_admin == 1) {
+        if (req.isAuthenticated() && actor.is_admin == 1) {
             var id = req.params.id;
             var sql = "delete from taikhoan where id= " + id;
             con.query(sql, function(error) {
@@ -104,7 +104,7 @@ module.exports = (app) => {
 
     //xóa tin
     app.get('/delete/:type/:id', function(req, res) {
-        if (req.isAuthenticated() && actor.s_admin == 1) {
+        if (req.isAuthenticated() && actor.is_admin == 1) {
             var sql = "delete from " + req.params.type + " where id=" + req.params.id;
             con.query(sql, function(error) {
                 if (error) {
