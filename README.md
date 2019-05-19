@@ -1,9 +1,18 @@
-# editDbSys
-các chức năng của admin và người đăng bài
-a) ADMIN
- -thêm tác giả
- -xóa tác giả
- -xem bài,xóa bài, chọn tin hót
- -xem,xóa góp ý
- b)AUTHOR
- -thêm bài,xem bài đã đăng, xóa bài
+Trên đây là source code về phần Admin và tác giả, để sử dụng vui lòng tải về máy.
+Sau khi tải về ta sẽ thấy bao gồm các file như sau:
+![image](https://user-images.githubusercontent.com/43057471/57984123-9f645280-7a82-11e9-85b4-ffc663bdd8ab.png)
+Mở Gitbash hoặc cmd gõ lệnh node app.js như hình bên dưới:
+![image](https://user-images.githubusercontent.com/43057471/57984132-bc992100-7a82-11e9-9be1-cd166f8ad5a6.png)
+Màn hình hiện mở ở cổng 3000, quanh sang tab trình duyệt gõ http://localhost:3000, sẽ được màn hình như sau:
+![image](https://user-images.githubusercontent.com/43057471/57984143-d9cdef80-7a82-11e9-94e4-5717d8b0dc54.png)
+
+Để đăng nhập dưới quyển Admin gõ tên đăng nhập "an", password "12345", sẽ được giao diện như hình bên dưới:
+![image](https://user-images.githubusercontent.com/43057471/57984150-fbc77200-7a82-11e9-8ce1-85c184e77a52.png)
+
+Chức năng của Admin sẽ bao gồm quản lý bài viết của tác giả, quản lý tài khoản của tác giả và quản lý phản hồi của người dùng. 
+![image](https://user-images.githubusercontent.com/43057471/57984169-5b258200-7a83-11e9-8555-44d38ad9b12b.png)
+![image](https://user-images.githubusercontent.com/43057471/57984181-71cbd900-7a83-11e9-86eb-cfcc208a1d15.png)
+![image](https://user-images.githubusercontent.com/43057471/57984186-81e3b880-7a83-11e9-8cda-f759ec5ca1be.png)
+
+Trên đây là hướng dẫn để đăng nhập dưới quyền Admin, còn để đăng nhập dưới quyền tác giả, bạn vui lòng quay lại trang đăng nhập,
+sau đó đăng nhập dưới tên "huybui", password "12345" như hình bên dưới:
