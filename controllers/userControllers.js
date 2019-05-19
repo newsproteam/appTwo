@@ -66,6 +66,7 @@ module.exports = (app) => {
                 " union select name,time,author,type,id from amthuc where postManId=" + id;
             con.query(sql, function(error, results, fields) {
                 if (error) {
+                    console.log(sql);
                     res.send("loi trong thuc thi câu lệnh");
                 } else {
                     res.render('hienxemtin1', { results });
@@ -156,35 +157,45 @@ module.exports = (app) => {
         actor.userID = 0;
         res.redirect('/');
     });
-
-
-
     //================================================================================
-    //xem va xoa gop y
-    app.get('/xemgopy', function(req, res) {
-        if (req.isAuthenticated()) {
-            var sql = "select * from gopy";
+    //thêm sửa tác giả
+    app.get('/suataikhoan/:id', urlencodedParser, function(req, res) {
+        console.log(req.params.id);
+        console.log(actor.userID);
+        if (req.isAuthenticated() && actor.userID == req.params.id) {
+            var sql = "select * from taikhoan where id=" + req.params.id;
+            console.log(sql);
             con.query(sql, function(error, results, fields) {
                 if (error) {
                     res.send('loi thực thi câu lệnh');
                 } else {
-                    res.render('xemgopy', { results });
+                    res.render('suataikhoan', { results });
                 }
             });
         } else res.render('baoloidangnhap');
-    });
-    app.get('/xoagopy/:id', function(req, res) {
-        if (req.isAuthenticated()) {
-            var id = req.params.id;
-            var sql = "delete from gopy where id=" + id;
-            con.query(sql, function(error, results, fields) {
-                if (error) {
-                    res.send('loi thực thi câu lệnh');
-                } else {
-                    res.redirect('/xemgopy');
-                }
-            });
-        } else res.render('baoloidangnhap');
-    });
+    })
+    app.post('/suataikhoan/:id', urlencodedParser, function(req, res) {
+        if (req.isAuthenticated() && actor.userID == req.params.id) {
+            var name = req.body.name;
+            var password = req.body.password;
+            var email = req.body.email;
+            var phone = req.body.phone;
+            var address = req.body.address;
 
+            var sql = "update taikhoan set name='" + name + "',password='" + password +
+                "',email='" + email +
+                "',phone='" + phone +
+                "',address='" + address +
+                "' where id=" + req.params.id;
+            console.log(sql);
+            con.query(sql, function(error) {
+                if (error) {
+                    res.send("loi thuc thi cau lenh");
+
+                } else {
+                    res.redirect('/user');
+                }
+            });
+        } else res.render('baoloidangnhap');
+    });
 };
