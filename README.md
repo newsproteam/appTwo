@@ -23,7 +23,7 @@ sau đó đăng nhập dưới tên "huybui", password "12345" như hình bên d
 ![image](https://user-images.githubusercontent.com/43057471/57984366-5bbf1800-7a85-11e9-9942-502848862dc1.png)
 
 Dưới quyền tác giả, bạn có quyền thêm sửa xóa thông tin bài đã đăng và thay đổi thông tin cá nhân.
+![image](https://user-images.githubusercontent.com/43057471/57984461-2a931780-7a86-11e9-80ec-a916487ab7f0.png)
 
-![image](https://user-images.githubusercontent.com/43057471/57984387-84dfa880-7a85-11e9-83f9-8a3e7e7ccd8c.png)
 
 
